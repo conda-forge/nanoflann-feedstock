@@ -13,13 +13,36 @@ source:
 
 build:
   number: 0
-  script: xcopy /S %SRC_DIR%\include %LIBRARY_INC%  # [win]
-  script: cp -r $SRC_DIR/include/ $PREFIX/include/  # [unix]
+  skip: true  # [win and vc<14]
+  # The nanoflann library is header only, so we do not need
+  # to export the compiler run-time libraries.
+  # They are just needed during the build to perform some checks.
+  ignore_run_exports:
+    - libcxx
+    - libgcc-ng
+    - libstdcxx-ng
+    - vc
+    - vs2015_runtime
+
+requirements:
+  build:
+    - cmake
+    - make  # [unix]
+    - {{ compiler('cxx') }}
+  host: []  # Empty host dependency section
 
 test:
   commands:
-    - if not exist %LIBRARY_INC%\nanoflann.hpp exit 1  # [win]
-    - test -f ${PREFIX}/include/nanoflann.hpp          # [unix]
+    - if not exist %LIBRARY_INC%\nanoflann.hpp (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\share\nanoflann\cmake\nanoflannConfig.cmake (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\share\nanoflann\cmake\nanoflannConfigVersion.cmake (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\share\nanoflann\cmake\nanoflannTargets.cmake (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\pkgconfig\nanoflann.pc (exit 1)  # [win]
+    - test -f ${PREFIX}/include/nanoflann.hpp  # [unix]
+    - test -f ${PREFIX}/share/nanoflann/cmake/nanoflannConfig.cmake  # [unix]
+    - test -f ${PREFIX}/share/nanoflann/cmake/nanoflannConfigVersion.cmake  # [unix]
+    - test -f ${PREFIX}/share/nanoflann/cmake/nanoflannTargets.cmake  # [unix]
+    - test -f ${PREFIX}/lib/pkgconfig/nanoflann.pc  # [unix]
 
 about:
   home: https://github.com/jlblancoc/nanoflann
