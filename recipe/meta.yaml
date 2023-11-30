@@ -1,6 +1,6 @@
 {% set name = "nanoflann" %}
-{% set version = "1.5.1" %}
-{% set sha256 = "012c519a8a8d2b05c857279e18b910c37746641afbf73a8125f1a69113988857" %}
+{% set version = "1.5.2" %}
+{% set sha256 = "2adcea7821445119a7a4f83c27abd56dba963e1e9c05a3f58bdb2273ae1b4698" %}
 
 package:
   name: {{ name|lower }}
