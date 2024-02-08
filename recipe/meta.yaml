@@ -34,14 +34,14 @@ requirements:
 test:
   commands:
     - if not exist %LIBRARY_INC%\nanoflann.hpp (exit 1)  # [win]
-    - if not exist %LIBRARY_PREFIX%\share\nanoflann\cmake\nanoflannConfig.cmake (exit 1)  # [win]
-    - if not exist %LIBRARY_PREFIX%\share\nanoflann\cmake\nanoflannConfigVersion.cmake (exit 1)  # [win]
-    - if not exist %LIBRARY_PREFIX%\share\nanoflann\cmake\nanoflannTargets.cmake (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\share\cmake\nanoflann\nanoflannConfig.cmake (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\share\cmake\nanoflann\nanoflannConfigVersion.cmake (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\share\cmake\nanoflann\nanoflannTargets.cmake (exit 1)  # [win]
     - if not exist %LIBRARY_PREFIX%\lib\pkgconfig\nanoflann.pc (exit 1)  # [win]
     - test -f ${PREFIX}/include/nanoflann.hpp  # [unix]
-    - test -f ${PREFIX}/share/nanoflann/cmake/nanoflannConfig.cmake  # [unix]
-    - test -f ${PREFIX}/share/nanoflann/cmake/nanoflannConfigVersion.cmake  # [unix]
-    - test -f ${PREFIX}/share/nanoflann/cmake/nanoflannTargets.cmake  # [unix]
+    - test -f ${PREFIX}/share/cmake/nanoflann/nanoflannConfig.cmake  # [unix]
+    - test -f ${PREFIX}/share/cmake/nanoflann/nanoflannConfigVersion.cmake  # [unix]
+    - test -f ${PREFIX}/share/cmake/nanoflann/nanoflannTargets.cmake  # [unix]
     - test -f ${PREFIX}/lib/pkgconfig/nanoflann.pc  # [unix]
 
 about:
