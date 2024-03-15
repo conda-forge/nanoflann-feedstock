@@ -1,6 +1,6 @@
 {% set name = "nanoflann" %}
-{% set version = "1.5.4" %}
-{% set sha256 = "a7f64d0bdff42614c561e52680b16de46c0edac9719f21f935c5e1f8b0654afc" %}
+{% set version = "1.5.5" %}
+{% set sha256 = "fd28045eabaf0e7f12236092f80905a1750e0e6b580bb40eadd64dc4f75d641d" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [(win and vc<14) or ppc64le]
   # The nanoflann library is header only, so we do not need
   # to export the compiler run-time libraries.
