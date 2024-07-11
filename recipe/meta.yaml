@@ -1,6 +1,6 @@
 {% set name = "nanoflann" %}
-{% set version = "1.5.5" %}
-{% set sha256 = "fd28045eabaf0e7f12236092f80905a1750e0e6b580bb40eadd64dc4f75d641d" %}
+{% set version = "1.6.0" %}
+{% set sha256 = "f889026fbcb241e1e9d71bab5dfb9cc35775bf18a6466a283e2cbcd60edb2705" %}
 
 package:
   name: {{ name|lower }}
@@ -29,6 +29,7 @@ requirements:
     - cmake
     - make  # [unix]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host: []  # Empty host dependency section
 
 test:
