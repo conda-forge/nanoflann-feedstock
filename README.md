@@ -209,6 +209,3 @@ Feedstock Maintainers
 * [@jlblancoc](https://github.com/jlblancoc/)
 * [@tadeu](https://github.com/tadeu/)
 
-
-<!-- dummy commit to enable rerendering -->
-
