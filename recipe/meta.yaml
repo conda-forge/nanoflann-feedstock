@@ -12,17 +12,13 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: true  # [(win and vc<14) or ppc64le]
+  number: 1
   # The nanoflann library is header only, so we do not need
   # to export the compiler run-time libraries.
   # They are just needed during the build to perform some checks.
-  ignore_run_exports:
-    - libcxx
-    - libgcc-ng
-    - libstdcxx-ng
-    - vc
-    - vs2015_runtime
+  ignore_run_exports_from:
+    - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
 
 requirements:
   build:
