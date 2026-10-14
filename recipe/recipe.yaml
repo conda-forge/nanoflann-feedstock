@@ -1,0 +1,66 @@
+schema_version: 1
+
+context:
+  version: "2.0.1"
+
+package:
+  name: nanoflann
+  version: ${{ version }}
+
+source:
+  url: https://github.com/jlblancoc/nanoflann/archive/${{ version }}.tar.gz
+  sha256: bb3991ad924248d3f20953a951c34878196c11ca112d800acc341c3808443896
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - if: unix
+      then: make
+  # The nanoflann library is header only, so we do not need
+  # to export the compiler run-time libraries.
+  # They are just needed during the build to perform some checks.
+  ignore_run_exports:
+    from_package:
+      - ${{ compiler('cxx') }}
+      - ${{ stdlib('c') }}
+
+tests:
+  - package_contents:
+      include:
+        - nanoflann.hpp
+      files:
+        - if: unix
+          then:
+            - share/cmake/nanoflann/nanoflannConfig.cmake
+            - share/cmake/nanoflann/nanoflannConfigVersion.cmake
+            - share/cmake/nanoflann/nanoflannTargets.cmake
+            - lib/pkgconfig/nanoflann.pc
+          else:
+            - Library/share/cmake/nanoflann/nanoflannConfig.cmake
+            - Library/share/cmake/nanoflann/nanoflannConfigVersion.cmake
+            - Library/share/cmake/nanoflann/nanoflannTargets.cmake
+            - Library/lib/pkgconfig/nanoflann.pc
+
+about:
+  homepage: https://github.com/jlblancoc/nanoflann
+  license: BSD-2-Clause
+  license_file: COPYING
+  summary: A C++ header-only library for Nearest Neighbor (NN) search wih KD-trees
+  description: |
+    nanoflann is a C++ header-only library for building KD-Trees, mostly optimized
+    for 2D or 3D point clouds. nanoflann does not require compiling or installing.
+    You just need to #include <nanoflann.hpp> in your code.
+  documentation: http://jlblancoc.github.io/nanoflann/
+  repository: https://github.com/jlblancoc/nanoflann
+
+extra:
+  recipe-maintainers:
+    - sea-bass
+    - tadeu
+    - jlblancoc
+    - jschueller
