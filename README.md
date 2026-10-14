@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nanoflann-feeds
 
 Home: https://github.com/jlblancoc/nanoflann
 
-Package license: BSD
+Package license: BSD-2-Clause
 
 Summary: A C++ header-only library for Nearest Neighbor (NN) search wih KD-trees
 
@@ -16,7 +16,6 @@ Documentation: http://jlblancoc.github.io/nanoflann/
 nanoflann is a C++ header-only library for building KD-Trees, mostly optimized
 for 2D or 3D point clouds. nanoflann does not require compiling or installing.
 You just need to #include <nanoflann.hpp> in your code.
-
 
 Current build status
 ====================
@@ -238,5 +237,6 @@ Feedstock Maintainers
 
 * [@jlblancoc](https://github.com/jlblancoc/)
 * [@jschueller](https://github.com/jschueller/)
+* [@sea-bass](https://github.com/sea-bass/)
 * [@tadeu](https://github.com/tadeu/)
 
