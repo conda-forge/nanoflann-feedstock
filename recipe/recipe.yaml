@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "2.0.1"
+  version: "2.0.2"
 
 package:
   name: nanoflann
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://github.com/jlblancoc/nanoflann/archive/${{ version }}.tar.gz
-  sha256: bb3991ad924248d3f20953a951c34878196c11ca112d800acc341c3808443896
+  sha256: b1e7c95852576742ba9fd83392f19c1ba25e7ad13252f66b18c294e183feaf1a
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
